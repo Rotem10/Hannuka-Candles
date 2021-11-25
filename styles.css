@@ -1,0 +1,7 @@
+body {
+  margin-left: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-image: url(./src/hanukkah-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
