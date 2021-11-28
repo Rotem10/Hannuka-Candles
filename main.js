@@ -1,5 +1,5 @@
-var days = [1, 2, 3, 4, 5, 6, 7, 8];
-var candlesWithShamash = days.map((day) => day + 1);
+const days = [1, 2, 3, 4, 5, 6, 7, 8];
+const candlesWithShamash = days.map((day) => day + 1);
 
 function calculateCandlesAmount() {
   let total = candlesWithShamash.reduce(
@@ -11,8 +11,8 @@ function calculateCandlesAmount() {
 function printCandles() {
   return days
     .map((day) => {
-      let candle = "| ";
-      let shamash = "!";
+      const candle = "| ";
+      const shamash = "!";
       return `<tr><td>${
         stringifyNumber(day).charAt(0).toUpperCase() +
         stringifyNumber(day).slice(1)
@@ -21,7 +21,7 @@ function printCandles() {
     .join("");
 }
 
-var special = [
+const special = [
   "zeroth",
   "first",
   "second",
@@ -43,7 +43,7 @@ var special = [
   "eighteenth",
   "nineteenth",
 ];
-var deca = [
+const deca = [
   "twent",
   "thirt",
   "fort",
@@ -55,12 +55,16 @@ var deca = [
 ];
 
 function stringifyNumber(n) {
-  if (n < 20) return special[n];
-  if (n % 10 === 0) return deca[Math.floor(n / 10) - 2] + "ieth";
+  if (n < 20) {
+    return special[n];
+  }
+  if (n % 10 === 0) {
+    return deca[Math.floor(n / 10) - 2] + "ieth";
+  }
   return deca[Math.floor(n / 10) - 2] + "y-" + special[n % 10];
 }
 
-var candlesPerDay = document.querySelector(".candles-per-day");
-var totalAmount = document.querySelector(".total-amount");
+const candlesPerDay = document.querySelector(".candles-per-day");
+const totalAmount = document.querySelector(".total-amount");
 candlesPerDay.innerHTML = printCandles();
 totalAmount.innerHTML = calculateCandlesAmount();
